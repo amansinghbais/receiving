@@ -36,26 +36,8 @@
         <h1>{{ $t('OMS') }}</h1>
       </div>
       <section>
-        <ion-card>
-          <ion-card-header>
-            <ion-card-subtitle>
-              {{ $t("OMS instance") }}
-            </ion-card-subtitle>
-            <ion-card-title>
-              {{ instanceUrl }}
-            </ion-card-title>
-          </ion-card-header>
-
-          <ion-card-content>
-            {{ $t('This is the name of the OMS you are connected to right now. Make sure that you are connected to the right instance before proceeding.') }}
-          </ion-card-content>
-
-          <ion-button @click="goToOms" fill="clear">
-            {{ $t('Go to OMS') }}
-            <ion-icon slot="end" :icon="openOutline" />
-          </ion-button>
-        </ion-card>
-
+        <OmsInstanceNavigation />
+        
         <ion-card>
           <ion-card-header>
             <ion-card-subtitle>
@@ -158,6 +140,7 @@ import { useRouter } from 'vue-router';
 import Image from '@/components/Image.vue'
 import { DateTime } from 'luxon';
 import TimeZoneModal from '@/views/TimezoneModal.vue';
+import OmsInstanceNavigation from '@hotwax/dxp-components'
 
 export default defineComponent({
   name: 'Settings',
@@ -286,7 +269,8 @@ export default defineComponent({
       saveOutline,
       storefrontOutline,
       store,
-      router
+      router,
+      OmsInstanceNavigation
     }
   }
 });
